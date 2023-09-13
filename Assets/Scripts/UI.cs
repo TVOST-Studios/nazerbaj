@@ -15,13 +15,10 @@ public class UI : MonoBehaviour
         if(Instance == null) Instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         crosshair.color = Color.green;
     }
-
-    // Update is called once per frame
     void Update()
     {
         CrosshairColorChange();
