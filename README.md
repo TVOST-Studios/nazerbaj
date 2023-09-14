@@ -10,7 +10,6 @@ All models are created using Blender and utilize the .blend method, thus it is r
 
 The main scene is ``Game``.
 
-
 ## Dependencies
 
 In addition to the regular Unity dependencies, this project has a dependency on the following additional Unity packages:
@@ -24,10 +23,6 @@ In addition to the regular Unity dependencies, this project has a dependency on 
 The main scene is Game
 
 ## Menus & UI
-
-### Info UI
-
-### Menus
 
 The menus are created using Unity's built-in UI tools.
 
