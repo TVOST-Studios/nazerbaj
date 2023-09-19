@@ -33,6 +33,8 @@ This section contains a reference to some of the key scripts that are used in th
 
 | Script | Description |
 | --- | --- |
+| Player.cs | This script is responsible for handling everything to do with the Player GameObject |
+| UI.cs | This script is responsible for handling everything to do with the in-game user interface |
 
 ## Known Issues
 
