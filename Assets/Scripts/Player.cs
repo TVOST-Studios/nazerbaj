@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     Ray bulletRay;
     public int range = 200;
-    public GameObject Gun;
+    public GameObject PlayerGun;
 
     public void Awake()
     {
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
         print("You shot hehe");
 
         DetectHit();
+        Gun.Instance.GunRecoil();
     }
 
     void DetectHit()
