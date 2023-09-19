@@ -17,6 +17,7 @@ In addition to the regular Unity dependencies, this project has a dependency on 
 | Package | Version | Description |
 | --- | --- | --- |
 | TextMeshPro | 3.0.6 | TextMeshPro is the ultimate text solution for Unity. |
+| DOTween (HOTween v2) | 1.2.745 | DOTween is a fast, efficient, fully type-safe object-oriented animation engine. |
 
 ## Scenes
 
@@ -32,6 +33,8 @@ This section contains a reference to some of the key scripts that are used in th
 
 | Script | Description |
 | --- | --- |
+| Player.cs | This script is responsible for handling everything to do with the Player GameObject |
+| UI.cs | This script is responsible for handling everything to do with the in-game user interface |
 
 ## Known Issues
 
