@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     bool redCrossHair;
 
     public Slider HealthSlider;
+    public TextMeshProUGUI HealthText;
 
     public static UI Instance;
     public void Awake()
@@ -45,5 +46,6 @@ public class UI : MonoBehaviour
     public void UpdateUI()
     {
         HealthSlider.value = Player.Instance.PlayerHealth;
+        HealthText.text = HealthSlider.value.ToString();
     }
 }
