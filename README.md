@@ -17,7 +17,7 @@ In addition to the regular Unity dependencies, this project has a dependency on 
 | Package | Version | Description |
 | --- | --- | --- |
 | TextMeshPro | 3.0.6 | TextMeshPro is the ultimate text solution for Unity. |
-| DOTween (HOTween v2) | 1.2.705 | DOTween is a fast, efficient, fully type-safe object-oriented animation engine. |
+| DOTween (HOTween v2) | 1.2.745 | DOTween is a fast, efficient, fully type-safe object-oriented animation engine. |
 
 ## Scenes
 
