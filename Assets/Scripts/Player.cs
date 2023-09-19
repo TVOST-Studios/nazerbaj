@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
 
     public int PlayerHealth;
 
+    bool shot = false;
+    [SerializeField]
+    float cooldown = 0.05f;
+
     Ray bulletRay;
     public int range = 200;
     public GameObject PlayerGun;
@@ -46,10 +50,14 @@ public class Player : MonoBehaviour
 
     void PlayerShoot()
     {
+        if (shot) return;
+        
         print("You shot hehe");
 
         DetectHit();
         Gun.Instance.GunRecoil();
+        shot = true;
+        StartCoroutine(IWaitFor1Second());
     }
 
     void DetectHit()
@@ -66,5 +74,11 @@ public class Player : MonoBehaviour
 
             return;
         }
+    }
+
+    IEnumerator IWaitFor1Second()
+    {
+        yield return new WaitForSecondsRealtime(cooldown);
+        shot = false;
     }
 }
