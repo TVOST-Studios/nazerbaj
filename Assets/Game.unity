@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1051b23edf018743bb49d789583ceed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: 100
+  PlayerHealth: 100
   range: 200
   Gun: {fileID: 1418518908}
 --- !u!1 &1142313890
@@ -2345,6 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 1967236741}
+  HealthSlider: {fileID: 278980186}
 --- !u!1 &1960231858
 GameObject:
   m_ObjectHideFlags: 0

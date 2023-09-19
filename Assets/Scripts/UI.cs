@@ -9,6 +9,9 @@ public class UI : MonoBehaviour
 
     public TextMeshProUGUI crosshair;
     bool redCrossHair;
+
+    public Slider HealthSlider;
+
     public static UI Instance;
     public void Awake()
     {
@@ -37,5 +40,10 @@ public class UI : MonoBehaviour
         {
             redCrossHair = false;
         }
+    }
+
+    public void UpdateUI()
+    {
+        HealthSlider.value = Player.Instance.PlayerHealth;
     }
 }
