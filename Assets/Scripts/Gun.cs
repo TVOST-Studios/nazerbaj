@@ -8,6 +8,13 @@ public class Gun : MonoBehaviour
 {
     [SerializeField]
     GameObject Pistol;
+    [SerializeField]
+    GameObject PistolProjectile;
+    [SerializeField]
+    GameObject ProjectileSpawnPoint;
+
+
+    public float PistolProjectileSpeed = 200f;
 
     Animator animator;
 
@@ -33,6 +40,15 @@ public class Gun : MonoBehaviour
     public void GunRecoil()
     {
         animator.SetTrigger("shoot");
+    }
+
+    public void GunFireProjectile()
+    {
+        GameObject pistolProjectile = Instantiate(PistolProjectile, ProjectileSpawnPoint.transform.position, Quaternion.identity);
+        Rigidbody PistolProjectileRB = pistolProjectile.GetComponent<Rigidbody>();
+
+        PistolProjectileRB.AddForce(ProjectileSpawnPoint.transform.forward * PistolProjectileSpeed);
+        Destroy(pistolProjectile,3f);
     }
 
 }

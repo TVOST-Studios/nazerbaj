@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
 
         DetectHit();
         Gun.Instance.GunRecoil();
+        Gun.Instance.GunFireProjectile();
         shot = true;
         StartCoroutine(IWaitFor1Second());
     }
