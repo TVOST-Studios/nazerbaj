@@ -1460,7 +1460,22 @@ MonoBehaviour:
   PlayerHealth: 100
   cooldown: 0.05
   range: 200
-  PlayerGun: {fileID: 0}
+  PlayerGun: {fileID: 1335807736}
+--- !u!114 &1056310222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056310208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810d46c675073d34f98b3a648444c4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1056310208}
+  JetpackAcceleration: 1
+  MaxJetpackAcceleration: 5
 --- !u!1 &1142313890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,6 +2769,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1056310215}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1056310222}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1 &1945523518
 GameObject:

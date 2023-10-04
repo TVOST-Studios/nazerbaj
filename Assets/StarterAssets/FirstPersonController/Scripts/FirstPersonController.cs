@@ -86,6 +86,7 @@ namespace StarterAssets
 			}
 		}
 
+		public static FirstPersonController Instance;
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -93,6 +94,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			if (Instance == null) { Instance = this; }
 		}
 
 		private void Start()
