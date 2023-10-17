@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 
     public int PlayerHealth;
 
+    [SerializeField]
+    ParticleSystem particleSystem;
+
     bool shot = false;
     [SerializeField]
     float cooldown = 0.05f;
@@ -46,6 +49,12 @@ public class Player : MonoBehaviour
         }
 
         UI.Instance.UpdateUI();
+    }
+
+    void ParticleSystem(){
+        var part = particleSystem;
+        part.Play();
+        Destroy(gameObject, part.main.duration);
     }
 
     void PlayerShoot()
