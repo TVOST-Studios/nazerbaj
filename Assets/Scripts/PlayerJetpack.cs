@@ -43,6 +43,7 @@ public class PlayerJetpack : MonoBehaviour
     public void Jetpacking()
     {
         Vector3 mv = _lastVelocity;
+        if(!JetpackStatus) { StartCoroutine(IWaitEnumerator()); return; }
 
         mv.y += JetpackAcceleration;                               // Acceleration happens over time* Time.deltaTime
 
@@ -60,5 +61,13 @@ public class PlayerJetpack : MonoBehaviour
 
         JetpackStatus = true;
         print("Im jetpackingg");
+    }
+
+    IEnumerator IWaitEnumerator()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+        if (Input.GetKey(KeyCode.Space)) { JetpackStatus = true; }
+        
     }
 }
