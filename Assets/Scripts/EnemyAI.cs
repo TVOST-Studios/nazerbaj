@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField]
+    Enemy _enemy;
+    
     public NavMeshAgent agent;
     public Transform player;
 
@@ -30,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        
     }
 
     public void Update()
@@ -53,6 +57,9 @@ public class EnemyAI : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         if(distanceToWalkPoint.magnitude < 1f) { walkPointSet = false; }
+
+        _enemy.EnemyWalkAnimation();
+        
     }
     private void SearchWalkPoint()
     {
@@ -70,6 +77,7 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        _enemy.EnemyWalkAnimation();
     }
 
     private void AttackPlayer()
@@ -84,6 +92,7 @@ public class EnemyAI : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             print("enemy attacked you!");
+            _enemy.EnemyShootAnimation();
         }
     }
 
