@@ -1,21 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 
 public class Weaponswitch : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-=======
     [Header("Reference")]
     [SerializeField] private Transform[] weapons;
 
@@ -38,7 +27,7 @@ public class Weaponswitch : MonoBehaviour
     private void SetWeapons(){
         weapons = new Transform[transform.childCount];
 
-        for (int i = 0; i < transform.childCount; i++){
+        for (int i = 0; i < transform.childCount; i){
             weapons[i] = transform.GetChild(i);
         }
 
@@ -70,6 +59,5 @@ public class Weaponswitch : MonoBehaviour
 
     private void onWeaponSelected(){
         print("Selected new weapon.. ");
->>>>>>> Stashed changes
     }
 }
