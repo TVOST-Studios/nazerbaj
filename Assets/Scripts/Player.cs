@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 
     public int PlayerHealth;
 
-    public Collider EnemyCollider;
     [SerializeField]
     ParticleSystem particleSystem;
 
@@ -81,11 +80,10 @@ public class Player : MonoBehaviour
 
         if(hit.transform.CompareTag("Enemy"))
         {
-            
+            print("Enemy hit");
+
             return;
         }
-
-
     }
 
     IEnumerator IWaitFor1Second()
@@ -93,13 +91,4 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
         shot = false;
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            print("osui");
-        }
-    }
-
 }

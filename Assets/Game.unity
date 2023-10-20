@@ -1541,8 +1541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHealth: 100
-  ProjectileCollider: {fileID: 0}
-  EnemyCollider: {fileID: 0}
   particleSystem: {fileID: 0}
   cooldown: 0.05
   range: 200
