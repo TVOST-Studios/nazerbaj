@@ -9,10 +9,10 @@ public class Weaponswitch : MonoBehaviour
     [SerializeField] private Transform[] weapons;
 
     [Header("Keys")]
-    [SerializeField] private Transform[] keys;
+    [SerializeField] private KeyCode[] keys;
 
     [Header("Settings")]
-    [SerializeField] private Transform[] switchTime;
+    [SerializeField] private float switchTime;
     
     private int selectedWeapon;
     private float timeSinceLastSwitch;
@@ -27,7 +27,7 @@ public class Weaponswitch : MonoBehaviour
     private void SetWeapons(){
         weapons = new Transform[transform.childCount];
 
-        for (int i = 0; i < transform.childCount; i){
+        for (int i = 0; i < transform.childCount; i++){
             weapons[i] = transform.GetChild(i);
         }
 
