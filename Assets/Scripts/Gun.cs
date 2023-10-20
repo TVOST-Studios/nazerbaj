@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     GameObject ProjectileSpawnPoint;
 
+    // Pistol
 
     public float PistolProjectileSpeed = 200f;
 

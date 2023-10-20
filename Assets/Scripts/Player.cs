@@ -64,8 +64,16 @@ public class Player : MonoBehaviour
         print("You shot hehe");
 
         DetectHit();
-        Gun.Instance.GunRecoil();
-        Gun.Instance.GunFireProjectile();
+        if (Gun.Instance.gameObject.activeInHierarchy){
+            Gun.Instance.GunRecoil();
+            Gun.Instance.GunFireProjectile();
+        }
+
+        else if (Gun2.Instance.gameObject.activeInHierarchy){
+            //Gun2.Instance.GunRecoil();
+            Gun2.Instance.GunFireProjectile2();
+        }
+
         shot = true;
         StartCoroutine(IWaitFor1Second());
     }
