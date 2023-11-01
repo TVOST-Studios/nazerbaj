@@ -34,6 +34,11 @@ public class Enemy : MonoBehaviour
     {
         EnemyHealth -= dmg;
         print(EnemyHealth);
+        if(EnemyHealth <= 0 ) { EnemyDie(); }
     }
     
+    void EnemyDie()
+    {
+        Destroy(this.gameObject);
+    }
 }

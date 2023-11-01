@@ -8,7 +8,7 @@ public class GunProjectile : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         print(collider.name);
-        if(collider.gameObject.name == "Enemy")
+        if(collider.gameObject.tag == "Enemy")
         {
             Player.Instance.DetectHit();
             collider.TryGetComponent<OpenEvents>(out var events);
