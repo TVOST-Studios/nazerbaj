@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -61,9 +62,7 @@ public class Player : MonoBehaviour
     {
         if (shot) return;
         
-        print("You shot hehe");
-
-        DetectHit();
+       
         if (Gun.Instance.gameObject.activeInHierarchy){
             Gun.Instance.GunRecoil();
             Gun.Instance.GunFireProjectile();
@@ -78,9 +77,9 @@ public class Player : MonoBehaviour
         StartCoroutine(IWaitFor1Second());
     }
 
-    void DetectHit()
+    public void DetectHit()
     {
-        bulletRay = new Ray(Camera.main.transform.position, Camera.main.transform.forward * range);
+        /*bulletRay = new Ray(Camera.main.transform.position, Camera.main.transform.forward * range);
         if (!Physics.Raycast(bulletRay, out var hit,range))
         {
             return;
@@ -92,7 +91,14 @@ public class Player : MonoBehaviour
 
             return;
         }
+        */
+
+        print("Enemy hit!");
+        
+
     }
+
+
 
     IEnumerator IWaitFor1Second()
     {
