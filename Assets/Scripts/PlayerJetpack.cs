@@ -60,7 +60,7 @@ public class PlayerJetpack : MonoBehaviour
 
 
         JetpackStatus = true;
-        print("Im jetpackingg");
+        //print("Im jetpackingg");
     }
 
     IEnumerator IWaitEnumerator()
