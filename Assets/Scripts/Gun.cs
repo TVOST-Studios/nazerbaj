@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     GameObject Pistol;
     [SerializeField]
-    GameObject PistolProjectile;
+    public GameObject PistolProjectile;
     [SerializeField]
     GameObject ProjectileSpawnPoint;
 
