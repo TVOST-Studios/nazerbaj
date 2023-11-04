@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         }
 
         else if (Gun2.Instance.gameObject.activeInHierarchy){
-            //Gun2.Instance.GunRecoil();
+            Gun2.Instance.GunRecoil();
             Gun2.Instance.GunFireProjectile2();
         }
 
