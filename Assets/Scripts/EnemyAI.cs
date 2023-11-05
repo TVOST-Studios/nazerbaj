@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour
         // Use raycasting to check if other AI is in the way
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit)) {
-            if (hit.collider.gameObject.tag == "AI") {
+            if (hit.collider.gameObject.tag == "Enemy") {
                 return true;
             }
         }

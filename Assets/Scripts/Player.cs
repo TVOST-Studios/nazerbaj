@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     {
         if (Instance == null)
             Instance = this; 
+
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Camera"), LayerMask.NameToLayer("PlayerProjectile"));
     }
 
     void Start()
