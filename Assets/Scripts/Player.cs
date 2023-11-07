@@ -36,6 +36,20 @@ public class Player : MonoBehaviour
     public void Update()
     {
         if (Input.GetMouseButtonDown(0)) PlayerShoot();
+
+        //Animation
+		// if(_speed == Vector3.zero){
+		// 	//Idle
+		// 	animator.SetFloat("Speed", 0);
+		// }
+		// else if(!Input.GetKey(KeyCode.LeftShift)){
+		// 	//Walk
+		// 	animator.SetFloat("Speed", 4);
+		// }
+		// else{
+		// 	//Run
+		// 	animator.SetFloat("Speed", 5);
+		// }
     }
 
     void PlayerHealthHandler(bool _takingDamage, int damage)
