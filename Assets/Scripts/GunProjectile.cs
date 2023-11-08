@@ -15,7 +15,10 @@ public class GunProjectile : MonoBehaviour
             events?.Interact();
 
         }
-
-        Destroy(gameObject);
+        
+        if(collider.gameObject.tag != "Player"){
+            Destroy(gameObject);
+        }
+        
     }
 }
