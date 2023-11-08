@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     Vector3 lastPos;
     [SerializeField] private Animator animator;
+    public float EnemyHealth = 100;
     void Start()
     {
         lastPos = transform.position;
@@ -28,5 +29,16 @@ public class Enemy : MonoBehaviour
     {
         animator.Play("Shoot");
     }
+
+    public void TakeDamage(float dmg)
+    {
+        EnemyHealth -= dmg;
+        print(EnemyHealth);
+        if(EnemyHealth <= 0 ) { EnemyDie(); }
+    }
     
+    void EnemyDie()
+    {
+        Destroy(this.gameObject);
+    }
 }

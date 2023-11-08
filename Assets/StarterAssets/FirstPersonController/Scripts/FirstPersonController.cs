@@ -87,6 +87,8 @@ namespace StarterAssets
 		}
 
 		public static FirstPersonController Instance;
+
+		private Animator animator;
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -110,6 +112,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			animator = GetComponent<Animator>();
 		}
 
 		private void Update()

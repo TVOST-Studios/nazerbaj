@@ -14,10 +14,10 @@ TagManager:
   - Water
   - UI
   - isPlayer
-  - 
+  - PlayerProjectile
   - Camera
-  - 
-  - 
+  - AI
+  - AIProjectile
   - 
   - 
   - 

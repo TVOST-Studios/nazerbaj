@@ -33,13 +33,18 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        
+
+        // Ignore collisions between the AI and its projectiles
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("AI"), LayerMask.NameToLayer("AIProjectile"));
     }
+
 
     public void Update()
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
+
+        
 
         if(!playerInSight && !playerInAttackRange) { Patroling(); }
         if(playerInSight && !playerInAttackRange) { ChasePlayer(); }
@@ -86,14 +91,27 @@ public class EnemyAI : MonoBehaviour
 
         transform.LookAt(player);
 
-        if (!alreadyAttacked)
+        if (!alreadyAttacked && !OtherAIIsInTheWay())
         {
             //Shooting here
+            AIGun.Instance.GunFireProjectileAI();
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             print("enemy attacked you!");
             _enemy.EnemyShootAnimation();
         }
+    }
+
+    bool OtherAIIsInTheWay() {
+        // Use raycasting to check if other AI is in the way
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit)) {
+            if (hit.collider.gameObject.tag == "Enemy") {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void ResetAttack() { alreadyAttacked = false; }
