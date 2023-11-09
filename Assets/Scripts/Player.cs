@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public static Player Instance;
 
     public int PlayerHealth;
@@ -19,6 +21,9 @@ public class Player : MonoBehaviour
     Ray bulletRay;
     public int range = 200;
     public GameObject PlayerGun;
+    Animator animator;
+
+    FirstPersonController firstPersonController;
 
     public void Awake()
     {
@@ -30,26 +35,27 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-
+        animator = GetComponentInChildren<Animator>();
+        firstPersonController = GetComponent<FirstPersonController>();
     }
 
     public void Update()
     {
         if (Input.GetMouseButtonDown(0)) PlayerShoot();
-
         //Animation
-		// if(_speed == Vector3.zero){
-		// 	//Idle
-		// 	animator.SetFloat("Speed", 0);
-		// }
-		// else if(!Input.GetKey(KeyCode.LeftShift)){
-		// 	//Walk
-		// 	animator.SetFloat("Speed", 4);
-		// }
-		// else{
-		// 	//Run
-		// 	animator.SetFloat("Speed", 5);
-		// }
+		if(firstPersonController._speed == 0.0f){
+			//Idle
+			animator.SetFloat("Speed", 0);
+		}
+		else if(firstPersonController._speed >= 0.01f && firstPersonController._speed < firstPersonController.SprintSpeed){
+			//Walk
+            print("Juoksee");
+			animator.SetFloat("Speed", 4);
+		}
+		else if(firstPersonController._speed == firstPersonController.SprintSpeed){
+			//Run
+			animator.SetFloat("Speed", 6);
+		}
     }
 
     void PlayerHealthHandler(bool _takingDamage, int damage)
