@@ -59,5 +59,6 @@ public class Weaponswitch : MonoBehaviour
 
     private void onWeaponSelected(){
         print("Selected new weapon.. ");
+        UI.Instance.OutlineToggle();
     }
 }

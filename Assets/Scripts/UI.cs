@@ -13,6 +13,14 @@ public class UI : MonoBehaviour
     public Slider HealthSlider;
     public TextMeshProUGUI HealthText;
 
+    public Image RifeOutline;
+
+    public Image PistolOutline;
+    [SerializeField]
+    private GameObject Pistol;
+    [SerializeField]
+    private GameObject Rifle;
+
     public static UI Instance;
     public void Awake()
     {
@@ -26,7 +34,14 @@ public class UI : MonoBehaviour
     void Update()
     {
         CrosshairColorChange();
+        
         crosshair.color = redCrossHair ? Color.red : Color.green;
+    }
+    
+    public void OutlineToggle()
+    {
+        PistolOutline.enabled = Pistol.activeInHierarchy;
+        RifeOutline.enabled = Rifle.activeInHierarchy;
     }
 
     public void CrosshairColorChange()
