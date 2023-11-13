@@ -7498,6 +7498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 825913252}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1056310228}
@@ -10150,6 +10155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 2018880151}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1056310228}
@@ -11739,6 +11749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1548335930}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1056310228}
@@ -13258,6 +13273,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.28315124
       objectReference: {fileID: 0}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1225479685}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
       propertyPath: player
@@ -16244,6 +16264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 341029610}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1056310228}
@@ -18773,6 +18798,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.28315124
       objectReference: {fileID: 0}
+    - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
+        type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1365714156}
     - target: {fileID: 7396103783790326725, guid: 07d0de55c790ece4cb040095c7a26871,
         type: 3}
       propertyPath: player
