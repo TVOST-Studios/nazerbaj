@@ -18,12 +18,12 @@ public class AIGun : MonoBehaviour
 
     Animator animator;
 
-    // public static AIGun Instance;
+    public static AIGun Instance;
 
-    // public void Awake()
-    // {
-    //     if (Instance == null) { Instance = this; }
-    // }
+    public void Awake()
+    {
+        if (Instance == null) { Instance = this; }
+    }
 
     // Start is called before the first frame update
     void Start()

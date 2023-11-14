@@ -23,13 +23,10 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
-    public AIGun gun;
-
     //States
 
     public float sightRange, attackRange;
     public bool playerInSight, playerInAttackRange;
-
 
 
     private void Awake()
@@ -97,7 +94,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked && !OtherAIIsInTheWay())
         {
             //Shooting here
-            gun.GunFireProjectileAI();
+            AIGun.Instance.GunFireProjectileAI();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
