@@ -64,3 +64,5 @@ public class UI : MonoBehaviour
         HealthText.text = HealthSlider.value.ToString();
     }
 }
+
+// this is a hail mary
