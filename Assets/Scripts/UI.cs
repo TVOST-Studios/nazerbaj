@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
     public Slider HealthSlider;
     public TextMeshProUGUI HealthText;
 
-    public Image RifeOutline;
+    public Image RifleOutline;
 
     public Image PistolOutline;
     [SerializeField]
@@ -41,7 +41,7 @@ public class UI : MonoBehaviour
     public void OutlineToggle()
     {
         PistolOutline.enabled = Pistol.activeInHierarchy;
-        RifeOutline.enabled = Rifle.activeInHierarchy;
+        RifleOutline.enabled = Rifle.activeInHierarchy;
     }
 
     public void CrosshairColorChange()
