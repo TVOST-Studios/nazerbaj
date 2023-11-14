@@ -11694,7 +11694,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f4667fbd81bf0ee46964883e639c0d0b,
         type: 3}
       propertyPath: m_Name
-      value: Drone_earner
+      value: Drone_earner1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
