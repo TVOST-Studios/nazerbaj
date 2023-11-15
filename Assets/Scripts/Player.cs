@@ -58,21 +58,13 @@ public class Player : MonoBehaviour
 		}
     }
 
-    void PlayerHealthHandler(bool _takingDamage, int damage)
+    public void PlayerDamageHandler(int damage)
     {
-
-        if (_takingDamage)
-        {
-            PlayerHealth = PlayerHealth - damage;
-        }
-
-        else
-        {
-            PlayerHealth = PlayerHealth + damage;
-        }
+        PlayerHealth -= damage;
 
         UI.Instance.UpdateUI();
     }
+
 
     void ParticleSystem(){
         var part = particleSystem;
