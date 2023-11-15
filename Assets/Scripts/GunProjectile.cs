@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
+
+
 public class GunProjectile : MonoBehaviour
 {
-
+    public bool isPlayer = false;
     private void OnTriggerEnter(Collider collider)
     {
         print(collider.name);
@@ -20,8 +22,9 @@ public class GunProjectile : MonoBehaviour
         if(collider.gameObject.tag != "Player"){
             Destroy(gameObject);
         }
+        
 
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player" && !isPlayer)
         {
             print("Enemy hit you");
             collider.TryGetComponent<OpenEvents>(out var events);
