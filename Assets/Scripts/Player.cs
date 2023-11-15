@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
         UI.Instance.UpdateUI();
     }
 
-
     void ParticleSystem(){
         var part = particleSystem;
         part.Play();
@@ -93,26 +92,8 @@ public class Player : MonoBehaviour
 
     public void DetectHit()
     {
-        /*bulletRay = new Ray(Camera.main.transform.position, Camera.main.transform.forward * range);
-        if (!Physics.Raycast(bulletRay, out var hit,range))
-        {
-            return;
-        }
-
-        if(hit.transform.CompareTag("Enemy"))
-        {
-            print("Enemy hit");
-
-            return;
-        }
-        */
-
         print("Enemy hit!");
-        
-
     }
-
-
 
     IEnumerator IWaitFor1Second()
     {
