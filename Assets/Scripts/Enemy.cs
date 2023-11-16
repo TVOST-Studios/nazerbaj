@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    //EnemyAI _enemyai;
     Vector3 lastPos;
     [SerializeField] private Animator animator;
     public float EnemyHealth = 100;
+
+    public bool isDead = false;
     void Start()
     {
         lastPos = transform.position;
         animator = GetComponent<Animator>();
+        //_enemyai = GetComponent<EnemyAI>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,18 @@ public class Enemy : MonoBehaviour
     
     void EnemyDie()
     {
-        Destroy(this.gameObject);
+        animator.enabled = false;
+        isDead = true;
+
+        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
+        {
+            rb.isKinematic = false;
+            rb.detectCollisions = true;
+        }
+        //_enemyai.agent.enabled = false;
+
+
+        GetComponent<Rigidbody>().AddForce(-transform.forward * 5f, ForceMode.Impulse);
     }
+
 }

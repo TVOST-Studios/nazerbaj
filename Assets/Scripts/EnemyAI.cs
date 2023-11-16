@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+
     [SerializeField]
     Enemy _enemy;
     
@@ -30,6 +31,8 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSight, playerInAttackRange;
 
+    private bool isDead = false;
+
 
 
     private void Awake()
@@ -44,6 +47,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Update()
     {
+        isDead = _enemy.isDead;
         playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
 
@@ -52,6 +56,7 @@ public class EnemyAI : MonoBehaviour
         if(!playerInSight && !playerInAttackRange) { Patroling(); }
         if(playerInSight && !playerInAttackRange) { ChasePlayer(); }
         if(playerInAttackRange && playerInSight) { AttackPlayer(); }
+
     }
 
 
@@ -90,12 +95,11 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);   //makes sure the enemy doesnt move
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked && !OtherAIIsInTheWay())
+        if (!alreadyAttacked && !OtherAIIsInTheWay() && isDead == false)
         {
+            agent.SetDestination(transform.position);   //makes sure the enemy doesnt move
+
+            transform.LookAt(player);
             //Shooting here
             gun.GunFireProjectileAI();
 

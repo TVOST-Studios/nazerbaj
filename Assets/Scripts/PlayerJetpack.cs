@@ -2,27 +2,19 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerJetpack : MonoBehaviour
 {
-    public GameObject Player;
-
-    public float JetpackAcceleration = 0.2f;
+    public float JetpackAcceleration = 0.8f;
     public float MaxJetpackAcceleration = 5.0f;
-    private bool JetpackStatus;
+    public float JetpackSpeed = 1.0f;
+    public float MaxJetpackSpeed = 3.0f; // Maximum speed
+    public float MaxJetpackDuration = 5.0f; // Maximum duration
 
-    private Vector3 _lastVelocity;
+    private bool _isJetpacking;
+    private Vector3 _jetpackVelocity;
     private CharacterController _characterController;
-
-    private Vector3 _defaultVelocity;
-
-    public static PlayerJetpack Instance;
-
-    public void Awake()
-    {
-        if(Instance == null) { Instance = this; }
-    }
+    private float _jetpackTimer; // Timer for jetpack duration
 
     // Start is called before the first frame update
     void Start()
@@ -33,41 +25,60 @@ public class PlayerJetpack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space)) { JetpackStatus = false; _lastVelocity = Vector3.zero; return; }      // Guard clause to check if space bar is released
+        if (Input.GetKey(KeyCode.Space) && !_isJetpacking)
+        {
+            StartCoroutine(StartJetpackAfterDelay(0.4f));
+        }
+        else if (!Input.GetKey(KeyCode.Space) && _isJetpacking)
+        {
+            StopJetpack();
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) || JetpackStatus == true) { Jetpacking(); }
-
-        FirstPersonController.Instance.Gravity = JetpackStatus ? 0 : -15;
+        if (_isJetpacking)
+        {
+            ApplyJetpack();
+        }
     }
 
-    public void Jetpacking()
+    private IEnumerator StartJetpackAfterDelay(float delay)
     {
-        Vector3 mv = _lastVelocity;
-        if(!JetpackStatus) { StartCoroutine(IWaitEnumerator()); return; }
-
-        mv.y += JetpackAcceleration;                               // Acceleration happens over time* Time.deltaTime
-
-       // if(mv.y > MaxJetpackAcceleration) { mv.y = MaxJetpackAcceleration; }
-
-        mv.y -= Physics.gravity.y;
-
-       _characterController.Move(mv * (Time.deltaTime/2));  //
-
-        _lastVelocity = _characterController.velocity;
-    
-
-
-
-
-        JetpackStatus = true;
-        //print("Im jetpackingg");
+        yield return new WaitForSeconds(delay);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _isJetpacking = true;
+            _jetpackTimer = 0; // Reset the timer when starting the jetpack
+            FirstPersonController.Instance.Gravity = 0;
+        }
     }
 
-    IEnumerator IWaitEnumerator()
+    private void StopJetpack()
     {
-        yield return new WaitForSeconds(0.1f);
-        
-        if (Input.GetKey(KeyCode.Space)) { JetpackStatus = true; }
-        
+        _isJetpacking = false;
+        _jetpackVelocity = Vector3.zero;
+        FirstPersonController.Instance.Gravity = -15;
+    }
+
+    private void ApplyJetpack()
+    {
+        _jetpackVelocity.y += JetpackAcceleration * Time.deltaTime;
+        _jetpackVelocity.y = Mathf.Min(_jetpackVelocity.y, MaxJetpackAcceleration);
+
+        // Add horizontal movement
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * x + transform.forward * z;
+        _jetpackVelocity += move * JetpackSpeed * Time.deltaTime;
+
+        // Clamp the speed to the maximum speed
+        _jetpackVelocity = Vector3.ClampMagnitude(_jetpackVelocity, MaxJetpackSpeed);
+
+        _characterController.Move(_jetpackVelocity * Time.deltaTime);
+
+        // Increase the timer and stop the jetpack if the maximum duration is reached
+        _jetpackTimer += Time.deltaTime;
+        if (_jetpackTimer >= MaxJetpackDuration)
+        {
+            StopJetpack();
+        }
     }
 }

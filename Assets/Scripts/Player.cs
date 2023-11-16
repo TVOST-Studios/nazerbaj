@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public GameObject PlayerGun;
     Animator animator;
 
+    private Coroutine healCoroutine;
+
     FirstPersonController firstPersonController;
 
     public void Awake()
@@ -50,7 +52,6 @@ public class Player : MonoBehaviour
 		}
 		else if(firstPersonController._speed >= 0.01f && firstPersonController._speed < firstPersonController.SprintSpeed){
 			//Walk
-            print("Juoksee");
 			animator.SetFloat("Speed", 4);
 		}
 		else if(firstPersonController._speed == firstPersonController.SprintSpeed){
@@ -62,8 +63,26 @@ public class Player : MonoBehaviour
     public void PlayerDamageHandler(int damage)
     {
         PlayerHealth -= damage;
-
         UI.Instance.UpdateUI();
+
+        if (healCoroutine != null)
+        {
+            StopCoroutine(healCoroutine);
+        }
+
+        healCoroutine = StartCoroutine(HealOverTime());
+    }
+
+    IEnumerator HealOverTime()
+    {
+        yield return new WaitForSecondsRealtime(5);
+
+        while (PlayerHealth < 100)
+        {
+            PlayerHealth = PlayerHealth + 2;
+            UI.Instance.UpdateUI();
+            yield return new WaitForSecondsRealtime(1);
+        }
     }
 
     void ParticleSystem(){

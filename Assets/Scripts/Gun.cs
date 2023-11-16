@@ -48,6 +48,12 @@ public class Gun : MonoBehaviour
         GameObject pistolProjectile = Instantiate(PistolProjectile, ProjectileSpawnPoint.transform.position, Quaternion.identity);
         Rigidbody PistolProjectileRB = pistolProjectile.GetComponent<Rigidbody>();
 
+        GunProjectile gunProjectile = pistolProjectile.GetComponent<GunProjectile>();
+        if (gunProjectile != null)
+        {
+            gunProjectile.isPlayer = true;
+        }
+
         PistolProjectileRB.AddForce(ProjectileSpawnPoint.transform.forward * PistolProjectileSpeed);
         Destroy(pistolProjectile,3f);
     }
