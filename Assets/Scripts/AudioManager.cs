@@ -27,9 +27,9 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BackgroundMusic1 = GameObject.Find("WaveMusic").GetComponent<AudioSource>();                   // Gets references to all of the AudioSource components
-        BackgroundMusic2 = GameObject.Find("GracePeriodMusic").GetComponent<AudioSource>();     //
-        MainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();           //
+        BackgroundMusic1 = transform.Find("BackgroundMusic1").GetComponent<AudioSource>();                   // Gets references to all of the AudioSource components
+      //  BackgroundMusic2 = GameObject.Find("BackgroundMusic2").GetComponent<AudioSource>();     //
+       // MainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();           //
 
         BackgroundMusic1.loop = true;              // Turns the looping on all of the audios on
         BackgroundMusic2.loop = true;       // This means that when the audio ends it will start playing again
