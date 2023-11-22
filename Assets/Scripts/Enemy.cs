@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float EnemyHealth = 100;
 
     public bool isDead = false;
+
+    public float bodyFadeSpeed = 10.0f;
     void Start()
     {
         lastPos = transform.position;
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isDead) StartCoroutine(Wait25Seconds());
     }
 
     public void EnemyWalkAnimation()
@@ -54,6 +56,17 @@ public class Enemy : MonoBehaviour
 
 
         GetComponent<Rigidbody>().AddForce(-transform.forward * 5f, ForceMode.Impulse);
+    }
+
+    IEnumerator Wait5Seconds()
+    {
+        yield return new WaitForSecondsRealtime(25);
+        EnemyDespawn();
+    }
+
+    public void EnemyDespawn()
+    {
+        Destroy(gameObject);
     }
 
 }
