@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
 
-        
+        if(isDead) { return; }
 
         if(!playerInSight && !playerInAttackRange) { Patroling(); }
         if(playerInSight && !playerInAttackRange) { ChasePlayer(); }
