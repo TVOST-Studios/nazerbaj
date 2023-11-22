@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(-transform.forward * 5f, ForceMode.Impulse);
     }
 
-    IEnumerator Wait5Seconds()
+    IEnumerator Wait25Seconds()
     {
         yield return new WaitForSecondsRealtime(25);
         EnemyDespawn();
