@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Enemy
+  - PickUpItems
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - AI
   - AIProjectile
   - Post Processing
-  - 
+  - PickUpItems
   - 
   - 
   - 

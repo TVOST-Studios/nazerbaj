@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
 
     FirstPersonController firstPersonController;
 
+    public float pickupDistance = 5f;
+    private GameObject _closestItem;
+    public PlayerInventory playerInventory;
+
     public void Awake()
     {
         if (Instance == null)
@@ -58,6 +62,52 @@ public class Player : MonoBehaviour
 			//Run
 			animator.SetFloat("Speed", 6);
 		}
+
+        _closestItem = FindClosestItem();
+
+        if (Input.GetKeyDown(KeyCode.E) && _closestItem != null)
+        {
+            PickUp(_closestItem.gameObject);
+        }
+    }
+
+    GameObject FindClosestItem()
+    {
+        float distanceToClosestItem = Mathf.Infinity;
+        GameObject closestItem = null;
+        GameObject[] allItems = GameObject.FindGameObjectsWithTag("PickUpItems");
+
+        foreach (GameObject current in allItems)
+        {
+            float distanceToItem = (current.transform.position - this.transform.position).sqrMagnitude;
+            if (distanceToItem < distanceToClosestItem)
+            {
+                distanceToClosestItem = distanceToItem;
+                closestItem = current;
+            }
+        }
+
+        if (distanceToClosestItem <= pickupDistance)
+        {
+            return closestItem;
+        }
+
+        return null;
+    }
+
+    void PickUp(GameObject item)
+    {
+        // Increase the number of parts in the inventory.
+        playerInventory.PartsCollected();
+    
+        // Set all children of the item to inactive.
+        foreach (Transform child in item.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    
+        // Set the item itself to inactive.
+        item.SetActive(false);
     }
 
     public void PlayerDamageHandler(int damage)

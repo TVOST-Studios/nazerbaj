@@ -8,5 +8,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void PartsCollected(){
         NumberOfParts++;
+        print("Number of parts " + NumberOfParts);
     }
 }

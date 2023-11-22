@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8307,6 +8307,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reactor
       objectReference: {fileID: 0}
+    - target: {fileID: 829446917842751703, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 829446917842751703, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_TagString
+      value: PickUpItems
+      objectReference: {fileID: 0}
+    - target: {fileID: 923171738760536034, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 923171738760536034, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591954894355736804, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591954894355736804, guid: 277cfd31f58ed0b4c897c92f6d212e81,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8315,10 +8345,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1227936803}
-    - targetCorrespondingSourceObject: {fileID: 829446917842751703, guid: 277cfd31f58ed0b4c897c92f6d212e81,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1227936804}
   m_SourcePrefab: {fileID: 100100000, guid: 277cfd31f58ed0b4c897c92f6d212e81, type: 3}
 --- !u!1001 &609904520
 PrefabInstance:
@@ -11017,6 +11043,8 @@ MonoBehaviour:
   cooldown: 0.05
   range: 200
   PlayerGun: {fileID: 1335807736}
+  pickupDistance: 5
+  playerInventory: {fileID: 1056310246}
 --- !u!114 &1056310222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11791,18 +11819,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2, y: 2.2, z: 2.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1227936804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227936801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d32b2a4c632f1943936286c302c801e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1230090937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3909232393955608464, guid: a7fcb0cf21f4fad4bbaf6cb6074ad30f,
@@ -19923,6 +19939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084523059570358795, guid: 762b1432c93a7d048b63adfd9b31705d,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
