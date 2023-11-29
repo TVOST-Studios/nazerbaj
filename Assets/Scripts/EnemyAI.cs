@@ -83,7 +83,10 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint,-transform.up,2f,isGround))
         {
-            walkPointSet = true;
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(walkPoint,out hit, 1.0f,NavMesh.AllAreas)) { walkPointSet = true; }
+            else { walkPointSet = false; }
+            
         }
     }
 

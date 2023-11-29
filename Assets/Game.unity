@@ -11254,6 +11254,8 @@ MonoBehaviour:
   cooldown: 0.05
   range: 200
   PlayerGun: {fileID: 1335807736}
+  pickupDistance: 5
+  playerInventory: {fileID: 0}
 --- !u!114 &1056310222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16083,11 +16085,11 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 5abe8eed0fe6a264abd6efa0e4fa113f, type: 2}
-  m_TreeDistance: 170
+  m_TreeDistance: 183.79
   m_TreeBillboardDistance: 2000
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 68
+  m_DetailObjectDistance: 135
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
