@@ -11270,9 +11270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JetpackAcceleration: 1
   MaxJetpackAcceleration: 5
-  JetpackSpeed: 5
-  MaxJetpackSpeed: 3
-  MaxJetpackDuration: 5
+  JetpackSpeed: 15
+  MaxJetpackSpeed: 4
+  MaxJetpackDuration: 25
 --- !u!4 &1056310228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,

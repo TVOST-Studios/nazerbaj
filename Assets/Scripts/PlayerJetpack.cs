@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerJetpack : MonoBehaviour
 {
-    public float JetpackAcceleration = 0.8f;
+    public float JetpackAcceleration = 1.8f;
     public float MaxJetpackAcceleration = 5.0f;
     public float JetpackSpeed = 1.0f;
     public float MaxJetpackSpeed = 3.0f; // Maximum speed
-    public float MaxJetpackDuration = 5.0f; // Maximum duration
+    public float MaxJetpackDuration = 25.0f; // Maximum duration
 
     private bool _isJetpacking;
     private Vector3 _jetpackVelocity;
@@ -60,14 +60,20 @@ public class PlayerJetpack : MonoBehaviour
 
     private void ApplyJetpack()
     {
-        _jetpackVelocity.y += JetpackAcceleration * Time.deltaTime;
-        _jetpackVelocity.y = Mathf.Min(_jetpackVelocity.y, MaxJetpackAcceleration);
+        if (transform.position.y > 30) { _jetpackVelocity.y = 0; }
+        else
+        {
+            _jetpackVelocity.y = 100;
+            _jetpackVelocity.y += JetpackAcceleration * Time.deltaTime;
+            _jetpackVelocity.y = Mathf.Min(_jetpackVelocity.y, MaxJetpackAcceleration);
+        }
+        
 
         // Add horizontal movement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * x + transform.forward * z;
-        _jetpackVelocity += move * JetpackSpeed * Time.deltaTime;
+        Vector3 move = transform.right * x * 2 + transform.forward * z * 2;
+        _jetpackVelocity += JetpackSpeed * Time.deltaTime * move;
 
         // Clamp the speed to the maximum speed
         _jetpackVelocity = Vector3.ClampMagnitude(_jetpackVelocity, MaxJetpackSpeed);
