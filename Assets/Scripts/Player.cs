@@ -111,7 +111,8 @@ public class Player : MonoBehaviour
     
         // Set the item itself to inactive.
         item.SetActive(false);
-    }
+    }   
+
 
     public void PlayerDamageHandler(int damage)
     {

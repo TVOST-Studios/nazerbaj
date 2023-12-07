@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12584375, g: 0.13377984, b: 0.31933963, a: 1}
+  m_IndirectSpecularColor: {r: 0.12584385, g: 0.13377985, b: 0.31933963, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -646,6 +646,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2011110195}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a3e5a3ddf884fc40a32fc26b91e1ba0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2011110199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a3e5a3ddf884fc40a32fc26b91e1ba0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2011110200}
   m_SourcePrefab: {fileID: 100100000, guid: 8a3e5a3ddf884fc40a32fc26b91e1ba0, type: 3}
 --- !u!4 &176533037 stripped
 Transform:
@@ -19833,6 +19841,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.035530206, y: 0.028342929, z: 0.049619395}
   m_Center: {x: -0.0002734338, y: -0.0015953474, z: 0.008417529}
+--- !u!65 &2011110199
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011110192}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15503831, y: 0.02834294, z: 0.04977696}
+  m_Center: {x: 1.2495185e-17, y: -0.0015953465, z: 0.008496265}
+--- !u!114 &2011110200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011110192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8176c89e6f48ae648bd04db8ab17ea07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2013785531
 GameObject:
   m_ObjectHideFlags: 0

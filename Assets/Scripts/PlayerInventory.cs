@@ -10,4 +10,8 @@ public class PlayerInventory : MonoBehaviour
         NumberOfParts++;
         print("Number of parts " + NumberOfParts);
     }
+
+    public bool HasAllParts() {
+        return NumberOfParts >= 3;
+    }
 }
