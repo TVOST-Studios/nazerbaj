@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
 
     public void PlayerDamageHandler(int damage)
     {
+        if(PlayerHealth <= 0) { PlayerDead(); return; }
         PlayerHealth -= damage;
         UI.Instance.UpdateUI();
 
@@ -174,5 +175,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(cooldown);
         shot = false;
+    }
+
+    public void PlayerDead()
+    {
+        firstPersonController.enabled = false;
     }
 }
