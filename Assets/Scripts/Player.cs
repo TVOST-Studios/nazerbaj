@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     private Coroutine healCoroutine;
 
-    FirstPersonController firstPersonController;
+    public FirstPersonController firstPersonController;
 
     public float pickupDistance = 5f;
     private GameObject _closestItem;
@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        if(UI.Instance.optionsOpen == true) { return; }
         if (Input.GetMouseButtonDown(0)) PlayerShoot();
         //Animation
 		if(firstPersonController._speed == 0.0f){
