@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
     private GameObject _closestItem;
     public PlayerInventory playerInventory;
 
+
+    public AudioSource[] gunSounds;
+
     public void Awake()
     {
         if (Instance == null)
@@ -149,11 +152,13 @@ public class Player : MonoBehaviour
         if (Gun.Instance.gameObject.activeInHierarchy){
             Gun.Instance.GunRecoil();
             Gun.Instance.GunFireProjectile();
+            gunSounds[0].Play();
         }
 
         else if (Gun2.Instance.gameObject.activeInHierarchy){
             Gun2.Instance.GunRecoil();
             Gun2.Instance.GunFireProjectile2();
+            gunSounds[1].Play();
         }
 
         shot = true;
