@@ -117,9 +117,9 @@ public class Player : MonoBehaviour
 
     public void PlayerDamageHandler(int damage)
     {
-        if(PlayerHealth <= 0) { PlayerDead(); return; }
         PlayerHealth -= damage;
         UI.Instance.UpdateUI();
+        if(PlayerHealth <= 0) { PlayerDead(); return; }
 
         if (healCoroutine != null)
         {
