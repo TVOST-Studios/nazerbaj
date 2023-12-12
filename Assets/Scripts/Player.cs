@@ -163,12 +163,14 @@ public class Player : MonoBehaviour
         if (Gun.Instance.gameObject.activeInHierarchy){
             Gun.Instance.GunRecoil();
             Gun.Instance.GunFireProjectile();
+            gunSounds[0].volume = GlobalVariables.Instance.masterVolume;
             gunSounds[0].Play();
         }
 
         else if (Gun2.Instance.gameObject.activeInHierarchy){
             Gun2.Instance.GunRecoil();
             Gun2.Instance.GunFireProjectile2();
+            gunSounds[1].volume = GlobalVariables.Instance.masterVolume;
             gunSounds[1].Play();
         }
 

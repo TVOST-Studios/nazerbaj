@@ -15,18 +15,19 @@ public class AudioManager : MonoBehaviour
 
     [Space(15)]
     public Slider MasterVolumeSlider;
-    public Slider MusicVolumeSlider;
-    public Slider SfxVolumeSlider;
+
 
     public static AudioManager Instance;    // Using the singleton pattern
 
     public void Awake()
     {
-        if (Instance == null) { Instance = this; }
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
     }
     // Start is called before the first frame update
     void Start()
     {
+        getSlider();
+
         BackgroundMusic1 = transform.Find("BackgroundMusic1").GetComponent<AudioSource>();                   // Gets references to all of the AudioSource components
       //  BackgroundMusic2 = GameObject.Find("BackgroundMusic2").GetComponent<AudioSource>();     //
        // MainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();           //
@@ -36,15 +37,16 @@ public class AudioManager : MonoBehaviour
         MainMenuMusic.loop = true;          //
 
         MasterVolumeSlider.value = GlobalVariables.Instance.masterVolume;
-        MusicVolumeSlider.value = GlobalVariables.Instance.musicVolume;
-        SfxVolumeSlider.value = GlobalVariables.Instance.sfxVolume;
+
+
+        FadeMusic(BackgroundMusic1, BackgroundMusic1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Kutsu tässä change music volume
-       // ChangeMusicVolume();
+       ChangeMusicVolume();
+        if(MasterVolumeSlider == null) { getSlider(); }
     }
     public void FadeMusic(AudioSource _newAudio, AudioSource _oldAudio)
     {
@@ -73,9 +75,27 @@ public class AudioManager : MonoBehaviour
     public void ChangeMusicVolume()
     {
         GlobalVariables.Instance.masterVolume = MasterVolumeSlider.value;
-        GlobalVariables.Instance.musicVolume = MusicVolumeSlider.value;
-        GlobalVariables.Instance.sfxVolume = SfxVolumeSlider.value;
 
-        GetCurrentAudio().DOFade(GlobalVariables.Instance.masterVolume * GlobalVariables.Instance.musicVolume, 0f);
+
+        GetCurrentAudio().DOFade(GlobalVariables.Instance.masterVolume, 0f);
+    }
+
+    public void getSlider()
+    {
+        // Find all sliders
+        Slider[] sliders = Resources.FindObjectsOfTypeAll<Slider>();
+
+        // Find the slider with the specific tag
+        Slider mySlider = null;
+        foreach (Slider slider in sliders)
+        {
+            if (slider.gameObject.tag == "volumeslider")
+            {
+                mySlider = slider;
+                break;
+            }
+        }
+
+        MasterVolumeSlider = mySlider;
     }
 }
