@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         getSlider();
 
         BackgroundMusic1 = transform.Find("BackgroundMusic1").GetComponent<AudioSource>();                   // Gets references to all of the AudioSource components
-      //  BackgroundMusic2 = GameObject.Find("BackgroundMusic2").GetComponent<AudioSource>();     //
+        BackgroundMusic2 = transform.Find("BackgroundMusic2").GetComponent<AudioSource>();     //
        // MainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();           //
 
         BackgroundMusic1.loop = true;              // Turns the looping on all of the audios on
