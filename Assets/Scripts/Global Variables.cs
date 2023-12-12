@@ -13,6 +13,7 @@ public class GlobalVariables : MonoBehaviour
     public void Awake()
     {
         if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
+
     }
 
     // Start is called before the first frame update

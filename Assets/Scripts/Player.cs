@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     public AudioSource[] gunSounds;
     private CharacterController _controller;
 
+    public GameObject deathText;
+    public GameObject ui;
+
 
     public void Awake()
     {
@@ -50,6 +53,8 @@ public class Player : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         firstPersonController = GetComponent<FirstPersonController>();
+        ui.SetActive(true);
+        deathText.SetActive(false);
     }
 
     public void Update()
@@ -122,9 +127,9 @@ public class Player : MonoBehaviour
     {
         PlayerHealth -= damage;
         UI.Instance.UpdateUI();
-        if(PlayerHealth <= 0) 
-        { 
-            RespawnPlayer();
+        if(PlayerHealth <= 0)
+        {
+            DeadScreen();
             return; 
         }
 
@@ -191,15 +196,26 @@ public class Player : MonoBehaviour
 
     void RespawnPlayer()
     {
-        Debug.Log("Player died and is respawning");
-    
         Vector3 moveVector = respawnPosition - transform.position;
     
         _controller.Move(moveVector);
-    
-        Debug.Log("Player position after respawn: " + transform.position);
-    
         PlayerHealth = 100;
         UI.Instance.UpdateUI();
+    }
+
+    public void DeadScreen(){
+        StartCoroutine(ShowDeathScreen());
+    }
+
+    IEnumerator ShowDeathScreen(){
+        firstPersonController.enabled = false;
+        ui.SetActive(false);
+        deathText.SetActive(true);
+        yield return new WaitForSeconds(3);
+        firstPersonController.enabled = true;
+        ui.SetActive(true);
+        deathText.SetActive(false);
+        RespawnPlayer();
+        
     }
 }

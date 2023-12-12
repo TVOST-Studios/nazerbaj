@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FadeInText : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class FadeInText : MonoBehaviour
     public void ShowEndText()
     {
         StartCoroutine(FadeTextToFullAlpha(FadeTime, EndText));
+        StartCoroutine(Quit());
     }
 
     public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI i)
@@ -28,5 +30,10 @@ public class FadeInText : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
             yield return null;
         }
+    }
+
+    public IEnumerator Quit(){
+        yield return new WaitForSeconds(10);
+        Application.Quit();
     }
 }
