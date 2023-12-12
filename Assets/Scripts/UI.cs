@@ -27,6 +27,10 @@ public class UI : MonoBehaviour
     public bool optionsOpen = false;
 
     public static UI Instance;
+
+    public TextMeshProUGUI textElement;
+
+    public PlayerInventory playerInventory;
     public void Awake()
     {
         if(Instance == null) Instance = this;
@@ -98,4 +102,19 @@ public class UI : MonoBehaviour
         Cursor.visible = false;
 
     }
+
+    public void CollectPart(){
+        
+        if (playerInventory != null && textElement != null) {
+            textElement.text = "Parts Collected: " + playerInventory.NumberOfParts;
+        } else {
+            if (playerInventory == null) {
+                Debug.LogError("Player Inventory is not assigned in UI script.");
+            }
+            if (textElement == null) {
+                Debug.LogError("Text Element is not assigned in UI script.");
+            }
+        }
+    }
+
 }
