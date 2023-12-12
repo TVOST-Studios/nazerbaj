@@ -36,9 +36,12 @@ public class UI : MonoBehaviour
         if(Instance == null) Instance = this;
     }
 
+    public Slider MasterVolumeSlider;
     void Start()
     {
         crosshair.color = Color.green;
+
+        MasterVolumeSlider.value = GlobalVariables.Instance.masterVolume;
 
         if (textElement != null) {
             textElement.text = "Parts Collected: 0/3";

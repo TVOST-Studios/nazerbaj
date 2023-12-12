@@ -2090,7 +2090,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e70eb034c8ae4fe42b00d809716998e4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -8606,9 +8606,7 @@ MonoBehaviour:
   MainMenuMusic: {fileID: 0}
   AudioSources:
   - {fileID: 866163866}
-  MasterVolumeSlider: {fileID: 1724260001}
-  MusicVolumeSlider: {fileID: 0}
-  SfxVolumeSlider: {fileID: 0}
+  MasterVolumeSlider: {fileID: 0}
 --- !u!4 &1171121467
 Transform:
   m_ObjectHideFlags: 0
@@ -8836,8 +8834,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 0
-  musicVolume: 0
-  sfxVolume: 0
 --- !u!4 &1240670730
 Transform:
   m_ObjectHideFlags: 0
@@ -9689,7 +9685,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -9921,7 +9917,7 @@ GameObject:
   - component: {fileID: 1724260001}
   m_Layer: 5
   m_Name: MasterVolume Slider
-  m_TagString: Untagged
+  m_TagString: volumeslider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
