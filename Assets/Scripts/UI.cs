@@ -113,17 +113,21 @@ public class UI : MonoBehaviour
     }
 
     public void CollectPart(){
-        if (playerInventory != null && textElement != null) {
-            textElement.text = "Parts Collected: " + playerInventory.NumberOfParts + "/3";
+        if (playerInventory != null && textElement != null)
+        {
+            if (playerInventory.NumberOfParts == 3)
+            {
+                textElement.text = "Return back to the ship.";
+            } else { textElement.text = "Parts Collected: " + playerInventory.NumberOfParts + "/3"; }
         } else {
-            if (playerInventory == null) {
+            if (playerInventory == null)
+            {
                 Debug.LogError("Player Inventory is not assigned in UI script.");
             }
-            if (textElement == null) {
+            if (textElement == null)
+            {
                 Debug.LogError("Text Element is not assigned in UI script.");
             }
         }
     }
-
-
 }
