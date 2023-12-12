@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
 
     public float bodyFadeSpeed = 10.0f;
+
+    public AudioSource riflesound;
     void Start()
     {
         lastPos = transform.position;

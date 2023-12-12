@@ -105,6 +105,8 @@ public class EnemyAI : MonoBehaviour
             transform.LookAt(player);
             //Shooting here
             gun.GunFireProjectileAI();
+            _enemy.riflesound.volume = GlobalVariables.Instance.masterVolume;
+            _enemy.riflesound.Play();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
