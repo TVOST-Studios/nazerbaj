@@ -40,6 +40,12 @@ public class UI : MonoBehaviour
     {
         crosshair.color = Color.green;
 
+        if (textElement != null) {
+            textElement.text = "Parts Collected: 0/3";
+        } else {
+            Debug.LogError("Text Element is not assigned in UI script.");
+        }
+
         
     }
     void Update()
@@ -104,9 +110,8 @@ public class UI : MonoBehaviour
     }
 
     public void CollectPart(){
-        
         if (playerInventory != null && textElement != null) {
-            textElement.text = "Parts Collected: " + playerInventory.NumberOfParts;
+            textElement.text = "Parts Collected: " + playerInventory.NumberOfParts + "/3";
         } else {
             if (playerInventory == null) {
                 Debug.LogError("Player Inventory is not assigned in UI script.");
@@ -116,5 +121,6 @@ public class UI : MonoBehaviour
             }
         }
     }
+
 
 }
