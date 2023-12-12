@@ -38450,6 +38450,7 @@ MonoBehaviour:
   firstPersonController: {fileID: 0}
   pickupDistance: 5
   playerInventory: {fileID: 0}
+  respawnPosition: {x: -56.76, y: 17.4, z: 215.7}
   gunSounds:
   - {fileID: 1517759240}
   - {fileID: 1904029867}

@@ -31,8 +31,10 @@ public class Player : MonoBehaviour
     private GameObject _closestItem;
     public PlayerInventory playerInventory;
 
-
+    public Vector3 respawnPosition = new Vector3(-56.76f, 17.4f, 215.7f);
     public AudioSource[] gunSounds;
+    private CharacterController _controller;
+
 
     public void Awake()
     {
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         firstPersonController = GetComponent<FirstPersonController>();
     }
@@ -119,7 +122,11 @@ public class Player : MonoBehaviour
     {
         PlayerHealth -= damage;
         UI.Instance.UpdateUI();
-        if(PlayerHealth <= 0) { PlayerDead(); return; }
+        if(PlayerHealth <= 0) 
+        { 
+            RespawnPlayer();
+            return; 
+        }
 
         if (healCoroutine != null)
         {
@@ -144,7 +151,8 @@ public class Player : MonoBehaviour
     void ParticleSystem(){
         var part = particleSystem;
         part.Play();
-        Destroy(gameObject, part.main.duration);
+        gameObject.SetActive(false);
+        // Destroy(gameObject, part.main.duration);
     }
 
     void PlayerShoot()
@@ -179,8 +187,17 @@ public class Player : MonoBehaviour
         shot = false;
     }
 
-    public void PlayerDead()
+    void RespawnPlayer()
     {
-        firstPersonController.enabled = false;
+        Debug.Log("Player died and is respawning");
+    
+        Vector3 moveVector = respawnPosition - transform.position;
+    
+        _controller.Move(moveVector);
+    
+        Debug.Log("Player position after respawn: " + transform.position);
+    
+        PlayerHealth = 100;
+        UI.Instance.UpdateUI();
     }
 }
