@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public int PlayerHealth;
 
     [SerializeField]
-    ParticleSystem particleSystem;
+    //ParticleSystem particleSystem;
 
     bool shot = false;
     [SerializeField]
@@ -153,12 +153,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ParticleSystem(){
-        var part = particleSystem;
-        part.Play();
-        gameObject.SetActive(false);
+   // void ParticleSystem(){
+     //   var part = particleSystem;
+      //  part.Play();
+       // gameObject.SetActive(false);
         // Destroy(gameObject, part.main.duration);
-    }
+    //}
 
     void PlayerShoot()
     {
