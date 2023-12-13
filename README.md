@@ -2,6 +2,13 @@
 
 This project is made for Satakunta University of Applied sciences class Let's Make a Game!
 
+##In-game screenshots
+Menu:
+![image](https://github.com/TVOST-Studios/nazerbaj/assets/38045763/1fefc00f-33c7-4c62-a2d8-6aacee3f1a7b)
+Game:
+![image](https://github.com/TVOST-Studios/nazerbaj/assets/38045763/21660fcb-1d4a-4b67-ba6a-04b5239332c3)
+
+
 ## Starting the Development Build
 
 Unity version 2022.3.8f1 has been used to develop the game.
