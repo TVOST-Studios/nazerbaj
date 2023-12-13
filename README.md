@@ -39,4 +39,4 @@ This section contains a reference to some of the key scripts that are used in th
 
 ## Known Issues
 
-No quit button in-game, you have to close it by alt+f4.
+No quit button in-game, you have to close it by ``Alt+F4``.
