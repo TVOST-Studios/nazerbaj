@@ -2,7 +2,8 @@
 
 This project is made for Satakunta University of Applied sciences class Let's Make a Game!
 
-##In-game screenshots
+## In-game screenshots
+
 Menu:
 ![image](https://github.com/TVOST-Studios/nazerbaj/assets/38045763/1fefc00f-33c7-4c62-a2d8-6aacee3f1a7b)
 Game:
